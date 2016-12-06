@@ -2,10 +2,34 @@
 
 class DBI_Filesystem {
 
+	/**
+	 * Instance of WP_Filesystem
+	 * @var WP_Filesystem|null
+	 */
 	private $wp_filesystem;
+
+	/**
+	 * Result of call to `request_filesystem_credentials()`
+	 * @var bool
+	 */
 	private $credentials;
+
+	/**
+	 * If DBI_Filesystem should attempt to use the WP_Filesystem class
+	 * @var bool
+	 */
 	private $use_filesystem = false;
+
+	/**
+	 * Default chmod octal value for directories
+	 * @var int
+	 */
 	private $chmod_dir;
+
+	/**
+	 * Default chmod octal value for files
+	 * @var int
+	 */
 	private $chmod_file;
 
 	/**
@@ -528,7 +552,7 @@ class DBI_Filesystem {
 	 */
 	public function move( $source_abs_path, $destination_abs_path, $overwrite = true ) {
 
-		// error if source file doesn't exist
+		// Error if source file doesn't exist
 		if ( ! $this->file_exists( $source_abs_path ) ) {
 			return false;
 		}
