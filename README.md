@@ -1,3 +1,3 @@
 ## WP Filesystem
 
-A wrapper for the WP filesystem.
+More reliable filesystem functionality for WordPress projects that falls back on WP_Filesystem when available. 
